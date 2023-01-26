@@ -33,8 +33,10 @@ export function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  
 
   return (
+    <div>
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -120,5 +122,6 @@ export function ResponsiveAppBar() {
         </Toolbar>
       </Container>
     </AppBar>
+    </div>
   );
 }

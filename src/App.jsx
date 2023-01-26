@@ -1,16 +1,19 @@
 
 import React from "react";
 import {ResponsiveAppBar} from "./components/navbar"
-import {IconButtonSizes} from "./components/bottons"
 import {Imagenes, StandardImageList} from "./components/imagen"
-import { SwipeableTemporaryDrawer } from "./components/drawe";
+import {MuiDrawer} from "./components/btnder"
+import { MuiDrawerLeft } from "./components/btnleft";
+import { IconButton } from "@mui/material";
 function App() {
   return (
     <div>
         <ResponsiveAppBar></ResponsiveAppBar>
-        <IconButtonSizes></IconButtonSizes>
-        <SwipeableTemporaryDrawer></SwipeableTemporaryDrawer>
+         <MuiDrawer></MuiDrawer> 
+         <MuiDrawerLeft></MuiDrawerLeft>
+         
         <Imagenes></Imagenes>
+        <IconButton> </IconButton>
     </div>
     
   );

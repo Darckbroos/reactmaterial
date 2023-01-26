@@ -10,35 +10,37 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import { useState } from 'react';
+import { Drawer, Grid, Hidden, IconButton, Tooltip } from '@mui/material';
+import DehazeIcon from '@mui/icons-material/Dehaze';
 
-export function SwipeableTemporaryDrawer() {
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event &&
-      event.type === 'keydown' &&
-      (event.key === 'Tab' || event.key === 'Shift')
-    ) {
-      return;
-    }
 
-    setState({ ...state, [anchor]: open });
-  };
 
-  const list = (anchor) => (
-    <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >   
-      <List>
+
+export function MuiDrawerLeft() {
+  const [state, setState] = useState(false);
+  
+  const toggleDrawer= (open) => (event) => {
+      setState(open)
+  }
+
+  const list = () =>( 
+
+  <div style={{
+    marginTop: '87px'
+}}>
+    <Box>
+        <Box 
+        role="presentation"
+        onClick={toggleDrawer( false)}
+        onKeyDown={toggleDrawer( false)}>
+    <IconButton aria-label="" onClose={toggleDrawer(false)}>
+        x
+    </IconButton>
+    
+    </Box>
+        <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
@@ -63,24 +65,34 @@ export function SwipeableTemporaryDrawer() {
           </ListItem>
         ))}
       </List>
+        
     </Box>
-  );
-
-  return (
-    <div>
-      {['left', 'right', 'top', 'bottom'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <SwipeableDrawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}
-          >
-            {list(anchor)}
-          </SwipeableDrawer>
-        </React.Fragment>
-      ))}
     </div>
-  );
+  )
+
+  
+  return (
+    <div style={{
+      width: '100%',
+      maxWidth: '0px',
+      background: 'red',
+      position: 'absolute',
+  }}>
+    <Grid >
+      <Button variant="contained" onClick={toggleDrawer (true)} startIcon={<DehazeIcon  />}></Button>
+    </Grid>
+    <Drawer
+    anchor={'left'}
+    open={state}
+    onClose={toggleDrawer(false)}
+    variant ="persistent"
+    
+    >
+    {list()}
+
+    </Drawer>
+    
+    </div>
+  )
 }
+
