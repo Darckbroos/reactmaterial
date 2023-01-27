@@ -11,9 +11,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { BorderAll } from '@mui/icons-material';
-import { red } from '@mui/material/colors';
-import { Grid } from '@mui/material';
 
 const pages = ['Products','xD'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];

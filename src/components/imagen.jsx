@@ -1,7 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Grid, Button } from '@mui/material';
 
 export const Imagenes = () => {
+
+
+    const [buttonPosition, setButtonPosition] = useState({ x: 0, y: 0 });
+
+    const handleClick = (event) => {
+      setButtonPosition({ x: event.clientX+ -50+'px' , y: event.clientY + -15 +'px' });
+    };
+
     return (
         <Grid container justifyContent="center">
             <Grid 
@@ -10,6 +18,7 @@ export const Imagenes = () => {
                      width:'100%',
                      position: 'static',
                      marginTop: 70,
+                     
                 
                 }}>
                 <Button
@@ -18,10 +27,23 @@ export const Imagenes = () => {
                      borderStyle: 'solid',
                      borderWidth: '5px',
                      borderColor: 'rgba(255, 0, 0, 0.4) ',
+                     
                 
                 }}
                 >
-                <img src="./Assets/img/Plano1.jpg" className="logo" alt="" width={'100%'} />
+                <img onClick={handleClick} src="./Assets/img/Plano1.jpg" className="logo" alt="" width={'100%'} />
+                       </Button> 
+                <Button
+                    style={{
+                    position: 'fixed',
+                    left: buttonPosition.x,
+                    top: buttonPosition.y,
+                    overflowx: 'hidden',
+                    overflowy: 'hidden'
+                    }}
+                    variant="contained"
+                >
+                    New btn
                 </Button>
                 
             </Grid>
