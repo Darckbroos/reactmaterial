@@ -5,6 +5,7 @@ import {Imagenes, StandardImageList} from "./components/imagen"
 import {MuiDrawer} from "./components/btnder"
 import { MuiDrawerLeft } from "./components/btnleft";
 import { IconButton } from "@mui/material";
+import { BasicModal } from "./components/btnimagen";
 function App() {
   return (
     <div>
@@ -14,6 +15,7 @@ function App() {
          
          <Imagenes></Imagenes>
          <IconButton> </IconButton>
+         <BasicModal></BasicModal>
     </div>
     
   );

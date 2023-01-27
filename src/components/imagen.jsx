@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import { Grid, Button } from '@mui/material';
+import { NestedModal } from './modalchild';
+
 
 export const Imagenes = () => {
 
@@ -7,7 +9,7 @@ export const Imagenes = () => {
     const [buttonPosition, setButtonPosition] = useState({ x: 0, y: 0 });
 
     const handleClick = (event) => {
-      setButtonPosition({ x: event.clientX+ -50+'px' , y: event.clientY + -15 +'px' });
+      setButtonPosition({ x: event.clientX+ -50+'px' , y: event.clientY + -20 +'px' });
     };
 
     return (
@@ -41,9 +43,9 @@ export const Imagenes = () => {
                     overflowx: 'hidden',
                     overflowy: 'hidden'
                     }}
-                    variant="contained"
+                    
                 >
-                    New btn
+                    <NestedModal></NestedModal>
                 </Button>
                 
             </Grid>
