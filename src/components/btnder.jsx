@@ -39,7 +39,7 @@ export function MuiDrawer() {
     
             </Box>
         <List >
-                <Card sx={{ maxWidth: 200}}>
+                <Card sx={{ maxWidth: 270}}>
             <CardActionArea>
                 <CardMedia
                 component="img"
@@ -61,7 +61,7 @@ export function MuiDrawer() {
             </Card>
       </List>
       <List >
-                <Card sx={{ maxWidth: 200 }}>
+                <Card sx={{ maxWidth: 270 }}>
             <CardActionArea>
                 <CardMedia
                 component="img"
@@ -83,7 +83,7 @@ export function MuiDrawer() {
             </Card>
       </List>
       <List >
-                <Card sx={{ maxWidth: 200 }}>
+                <Card sx={{ maxWidth: 270 }}>
             <CardActionArea>
                 <CardMedia
                 component="img"
