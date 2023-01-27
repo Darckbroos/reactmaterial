@@ -27,14 +27,14 @@ export function MuiDrawerLeft() {
 
   const list = () =>( 
 
-  <div style={{
-    marginTop: '87px'
-}}>
-    <Box>
+
+  <div >
+    <Box >
         <Box 
         role="presentation"
         onClick={toggleDrawer( false)}
-        onKeyDown={toggleDrawer( false)}>
+        onKeyDown={toggleDrawer( false)}
+        >
     <IconButton aria-label="" onClose={toggleDrawer(false)}>
         x
     </IconButton>
@@ -45,7 +45,7 @@ export function MuiDrawerLeft() {
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 1 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
@@ -73,25 +73,34 @@ export function MuiDrawerLeft() {
   
   return (
     <div style={{
-      width: '100%',
-      maxWidth: '0px',
-      background: 'red',
-      position: 'absolute',
+      maxWidth: 90,
+      minWidth: 0,
+      position: 'fixed',
+      top: 80
   }}>
-    <Grid >
-      <Button variant="contained" onClick={toggleDrawer (true)} startIcon={<DehazeIcon  />}></Button>
-    </Grid>
+  
+    <Box>
+      <Grid >
+        <Button variant="contained" onClick={toggleDrawer (true)} startIcon={<DehazeIcon  />}></Button>
+      </Grid>
+      </Box>
     <Drawer
     anchor={'left'}
     open={state}
     onClose={toggleDrawer(false)}
-    variant ="persistent"
+    variant ="persistent"   
     
     >
-    {list()}
 
-    </Drawer>
+    <div style={{
+      marginTop:60
+    }}>
+     {list()}
+    </div>
+   
     
+    
+    </Drawer>
     </div>
   )
 }

@@ -11,8 +11,11 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { BorderAll } from '@mui/icons-material';
+import { red } from '@mui/material/colors';
+import { Grid } from '@mui/material';
 
-const pages = ['Products'];
+const pages = ['Products','xD'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export function ResponsiveAppBar() {
@@ -37,11 +40,27 @@ export function ResponsiveAppBar() {
 
   return (
     <div>
-    <AppBar position="static">
+    <AppBar position="fixed" 
+    sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
-        <img src="./Assets/img/logo-cpass.png" className="logo" alt="" width={'100px'} />
-
+        <Toolbar disableGutters >
+        <Box
+        style={{
+        width: '100%',
+        position: 'fixed',
+        left: 10,
+        }}
+        >
+        
+          <img src="./Assets/img/logo-cpass.png" className="logo" alt="" width={'110px'} />
+        </Box>
+          <div
+          style={{
+        width: '100%',
+        maxWidth: '0px',
+        position: 'fixed',
+        right: 140
+        }}>
           <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -78,6 +97,14 @@ export function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
+          </div>
+          <div
+          style={{
+        maxWidth: '400px',
+        position: 'fixed',
+        right: 100
+        }}>
+          
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
@@ -89,7 +116,12 @@ export function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
-
+          </div>
+          <div style={{
+        maxWidth: '300px',
+        position: 'fixed',
+        right: 50
+        }} >
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -119,6 +151,7 @@ export function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
+          </div>
         </Toolbar>
       </Container>
     </AppBar>

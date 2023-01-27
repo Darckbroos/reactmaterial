@@ -27,11 +27,8 @@ export function MuiDrawer() {
   }
 
   const list = () =>( 
-<div 
-style={{
-        marginTop: '87px'
-    }}>
-    <Box >
+<div>
+    <Box zIndex="modal">
         <Box 
         role="presentation"
         onClick={toggleDrawer( false)}
@@ -42,7 +39,7 @@ style={{
     
             </Box>
         <List >
-                <Card sx={{ maxWidth: 250 }}>
+                <Card sx={{ maxWidth: 200}}>
             <CardActionArea>
                 <CardMedia
                 component="img"
@@ -64,7 +61,7 @@ style={{
             </Card>
       </List>
       <List >
-                <Card sx={{ maxWidth: 250 }}>
+                <Card sx={{ maxWidth: 200 }}>
             <CardActionArea>
                 <CardMedia
                 component="img"
@@ -86,7 +83,7 @@ style={{
             </Card>
       </List>
       <List >
-                <Card sx={{ maxWidth: 250 }}>
+                <Card sx={{ maxWidth: 200 }}>
             <CardActionArea>
                 <CardMedia
                 component="img"
@@ -111,16 +108,14 @@ style={{
 </div>
   )
 
-//   sx={{ pt: 5}}
-
   
   return (
     <div style={{
-        width: '100%',
-        maxWidth: '0px',
-        background: 'red',
-        position: 'absolute',
-        right: '90px'
+        maxWidth: 90,
+        minWidth: 0,
+        position: 'fixed',
+        right: 0,
+        top: '50%'
     }}>
     <Container maxWidth="xl">
         <Box  >
@@ -136,8 +131,11 @@ style={{
     variant ="persistent"
   
     >
+    <div style={{
+      marginTop:60
+    }}>
     {list()}
-
+    </div>
     </Drawer>
     
     </div>

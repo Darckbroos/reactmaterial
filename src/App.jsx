@@ -8,12 +8,12 @@ import { IconButton } from "@mui/material";
 function App() {
   return (
     <div>
-        <ResponsiveAppBar></ResponsiveAppBar>
+         <ResponsiveAppBar></ResponsiveAppBar>
          <MuiDrawer></MuiDrawer> 
          <MuiDrawerLeft></MuiDrawerLeft>
          
-        <Imagenes></Imagenes>
-        <IconButton> </IconButton>
+         <Imagenes></Imagenes>
+         <IconButton> </IconButton>
     </div>
     
   );
