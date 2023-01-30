@@ -2,21 +2,23 @@
 import React from "react";
 import {ResponsiveAppBar} from "./components/navbar"
 import {Imagenes, StandardImageList} from "./components/imagen"
-import {MuiDrawer} from "./components/btnder"
-import { MuiDrawerLeft } from "./components/btnleft";
 import { IconButton } from "@mui/material";
-import { BasicModal } from "./components/btnimagen";
+import { MuiDrawerLeft } from "./components/btnleft";
+import { MuiDrawer } from "./components/btnder";
+
+
+
 function App() {
   return (
     <div>
          <ResponsiveAppBar></ResponsiveAppBar>
-         <MuiDrawer></MuiDrawer> 
          <MuiDrawerLeft></MuiDrawerLeft>
+         <MuiDrawer></MuiDrawer>
          
          <Imagenes></Imagenes>
          <IconButton> </IconButton>
-         <BasicModal></BasicModal>
     </div>
+    
     
   );
 }

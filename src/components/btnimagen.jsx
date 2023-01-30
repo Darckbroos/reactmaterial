@@ -3,6 +3,10 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { Grid } from '@mui/material';
+import CameraAltIcon from '@mui/icons-material/CameraAlt';
+import DoorBackIcon from '@mui/icons-material/DoorBack';
+import FenceIcon from '@mui/icons-material/Fence';
 
 const style = {
   position: 'absolute',
@@ -14,30 +18,60 @@ const style = {
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+  maxWidth:'100%',
+  minWidth:'20%'
 };
 
 export function BasicModal() {
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button variant="contained" onClick={handleOpen}>Open</Button>
       <Modal
         open={open}
-        onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
+          <Grid container justifyContent="center">
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+           Titulo
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
-        </Box>
+          </Grid>
+          <Grid container justifyContent="center">
+            <Typography id="modal-modal-description" sx={{ mt: 2}}>
+            <Button sx={{ mr: 1}} variant="contained" startIcon={<DoorBackIcon/>}></Button>
+            <Button sx={{ mr: 1}} variant="contained" startIcon={<FenceIcon  />}></Button>
+            <Button variant="contained" startIcon={<CameraAltIcon  />} ></Button>
+            </Typography>
+          </Grid>
+          <Grid container justifyContent="center">
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            <Button sx={{ mr: 1}} variant="contained">Puerta</Button>
+            <Button sx={{ mr: 1}} variant="contained">Reja</Button>
+            <Button variant="contained">Camara </Button>
+            </Typography>
+          </Grid>
+          <Grid container justifyContent="center">
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            <Button sx={{ mr: 1}} variant="contained">Agregar</Button>
+            <Button sx={{ mr: 1}} variant="contained">Editar</Button>
+            <Button variant="contained">Eliminar</Button>
+            </Typography>
+          </Grid>
+          
+          <Grid container justifyContent="end"  >
+            <Button onClose={handleClose} sx={{ mt: 3}} variant="contained">Close</Button>
+          </Grid>
+        </Box>  
       </Modal>
     </div>
   );

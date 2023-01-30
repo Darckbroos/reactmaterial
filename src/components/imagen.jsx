@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Grid, Button } from '@mui/material';
-import { NestedModal } from './modalchild';
+import { BasicModal } from './btnimagen';
 
 
 export const Imagenes = () => {
@@ -9,7 +9,7 @@ export const Imagenes = () => {
     const [buttonPosition, setButtonPosition] = useState({ x: 0, y: 0 });
 
     const handleClick = (event) => {
-      setButtonPosition({ x: event.clientX+ -50+'px' , y: event.clientY + -20 +'px' });
+      setButtonPosition({ x: event.clientX+ -45+'px' , y: event.clientY + -20 +'px' });
     };
 
     return (
@@ -23,29 +23,23 @@ export const Imagenes = () => {
                      
                 
                 }}>
-                <Button
-                style={{
-                    maxWidth:'100%',
-                     borderStyle: 'solid',
-                     borderWidth: '5px',
-                     borderColor: 'rgba(255, 0, 0, 0.4) ',
-                     
-                
-                }}
-                >
-                <img onClick={handleClick} src="./Assets/img/Plano1.jpg" className="logo" alt="" width={'100%'} />
-                       </Button> 
-                <Button
+                <Grid style={{
+                        maxWidth:'100%',
+                        minWidth:'20%',
+                        border: '3px solid #66ff76',
+                }}>
+                    <img onClick={handleClick} src="./Assets/img/Plano1.jpg" className="logo" alt="" width={'100%'} />
+                </Grid>
+                                <Button
                     style={{
                     position: 'fixed',
                     left: buttonPosition.x,
                     top: buttonPosition.y,
-                    overflowx: 'hidden',
-                    overflowy: 'hidden'
+                    overflowx: 'hidden',    
                     }}
                     
                 >
-                    <NestedModal></NestedModal>
+                    <BasicModal></BasicModal>
                 </Button>
                 
             </Grid>

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
@@ -13,9 +12,6 @@ import MailIcon from '@mui/icons-material/Mail';
 import { useState } from 'react';
 import { Drawer, Grid, Hidden, IconButton, Tooltip } from '@mui/material';
 import DehazeIcon from '@mui/icons-material/Dehaze';
-
-
-
 
 
 export function MuiDrawerLeft() {
@@ -33,7 +29,7 @@ export function MuiDrawerLeft() {
         <Box 
         role="presentation"
         onClick={toggleDrawer( false)}
-        onKeyDown={toggleDrawer( false)}
+        onKeyDown={toggleDrawer( true)}
         >
     <IconButton aria-label="" onClose={toggleDrawer(false)}>
         x
@@ -81,14 +77,15 @@ export function MuiDrawerLeft() {
   
     <Box>
       <Grid >
-        <Button variant="contained" onClick={toggleDrawer (true)} startIcon={<DehazeIcon  />}></Button>
+        <Button id='drawer1' variant="contained" onClick={toggleDrawer (true)} startIcon={<DehazeIcon  />}></Button>
       </Grid>
       </Box>
     <Drawer
     anchor={'left'}
     open={state}
     onClose={toggleDrawer(false)}
-    variant ="persistent"   
+    variant ="persistent" 
+    
     
     >
 
@@ -101,6 +98,11 @@ export function MuiDrawerLeft() {
     
     
     </Drawer>
+
+
+    <Hidden>
+      
+    </Hidden>
     </div>
   )
 }
