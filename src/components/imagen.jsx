@@ -52,12 +52,13 @@ export const Imagenes = () => {
                 }}>
                     <img onClick={handleClick} src="./Assets/img/Plano1.jpg" className="logo" alt="" width={'100%'} />
                 </Grid>
-                <Grid onClick={handleClick}>
+                <Grid>
                 {buttons.map((button, index) => (
                         <Button
+                        onClick={handleClick}
                         key={index}
                         style={{
-                            
+                          
                           position: "absolute",
                           left: button.left,
                           top: button.top,
@@ -66,7 +67,10 @@ export const Imagenes = () => {
                             
                         }}
                         > 
-                       <BasicModal></BasicModal>
+                        <Grid>
+                            <BasicModal></BasicModal>
+                        </Grid>
+                       
                     </Button>
                 ))}
                 </Grid>

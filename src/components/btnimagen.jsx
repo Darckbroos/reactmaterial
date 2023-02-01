@@ -27,6 +27,9 @@ const style = {
 
 
 export function BasicModal() {
+
+
+  
   const [icon, setIcon] = useState(null);
   const [inputValue, setInputValue] = useState('Open');
 
@@ -76,7 +79,7 @@ export function BasicModal() {
           </Grid>
           <Grid container justifyContent="center">
             <Typography id="modal-modal-description" sx={{ mt: 3 }}>
-            <Button sx={{ mr: 1}} variant="contained">Agregar</Button>
+            <Button onClick={handleClose} sx={{ mr: 1}} variant="contained">Agregar</Button>
             <Button sx={{ mr: 1}} variant="contained">Editar</Button>
             <Button variant="contained">Eliminar</Button>
             </Typography>

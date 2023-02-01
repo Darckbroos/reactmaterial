@@ -4,6 +4,7 @@ import {ResponsiveAppBar} from "./components/navbar"
 import {Imagenes, } from "./components/imagen"
 import { IconButton } from "@mui/material";
 import { MuiDrawerLeftts } from "./components/btns";
+import { BasicModal } from "./components/btnimagen";
 
 
 
