@@ -52,7 +52,6 @@ export function BasicModal() {
       
       <Modal
         open={open}
-        onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -75,17 +74,8 @@ export function BasicModal() {
             <TextField label="Ingresa el nombre" value={inputValue} onChange={handleInputChange} color="secondary" focused />
           </Typography>
           </Grid>
-
-
           <Grid container justifyContent="center">
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            <Button sx={{ mr: 1}} variant="contained">Puerta</Button>
-            <Button sx={{ mr: 1}} variant="contained">Reja</Button>
-            <Button variant="contained">Camara </Button>
-            </Typography>
-          </Grid>
-          <Grid container justifyContent="center">
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            <Typography id="modal-modal-description" sx={{ mt: 3 }}>
             <Button sx={{ mr: 1}} variant="contained">Agregar</Button>
             <Button sx={{ mr: 1}} variant="contained">Editar</Button>
             <Button variant="contained">Eliminar</Button>

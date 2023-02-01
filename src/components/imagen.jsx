@@ -3,17 +3,34 @@ import { Grid, Button } from '@mui/material';
 import { BasicModal } from './btnimagen';
 
 
-
-
-
+const initialButtons = [];
 
 export const Imagenes = () => {
 
 
-    const [buttonPosition, setButtonPosition] = useState({ x: 0, y: 0 });
+    const [buttons, setButtons] = useState(initialButtons);
 
     const handleClick = (event) => {
-      setButtonPosition({ x: event.clientX+ -45+'px' , y: event.clientY + -20 +'px' });
+        
+      const { clientX , clientY } = event;
+      const overlappingButton = buttons.find(
+        (button) =>
+            clientX > button.left &&
+            clientX < button.left + button.width &&
+            clientY > button.top &&
+            clientY < button.top + button.height
+      );
+      if (!overlappingButton) {
+        setButtons([
+          ...buttons,
+          {
+            left: clientX + -50+'px',
+            top:  clientY + -25 +'px',
+            width: 100,
+            height: 50,
+          },
+        ]);
+      }
     };
 
     return (
@@ -35,20 +52,28 @@ export const Imagenes = () => {
                 }}>
                     <img onClick={handleClick} src="./Assets/img/Plano1.jpg" className="logo" alt="" width={'100%'} />
                 </Grid>
-                    <Button
-                    style={{
-                    position: 'fixed',
-                    left: buttonPosition.x,
-                    top: buttonPosition.y,
-                    overflow: 'hidden',    
-                    }}
+                <Grid onClick={handleClick}>
+                {buttons.map((button, index) => (
+                        <Button
+                        key={index}
+                        style={{
+                            
+                          position: "absolute",
+                          left: button.left,
+                          top: button.top,
+                          width: button.width,
+                          height: button.height,
+                            
+                        }}
+                        > 
+                       <BasicModal></BasicModal>
+                    </Button>
+                ))}
+                </Grid>
                     
-                >
-                    <BasicModal></BasicModal>
-                </Button>
                 
                 
-            </Grid>
+            </Grid> 
         </Grid>
     );
 }
