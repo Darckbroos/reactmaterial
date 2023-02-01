@@ -3,6 +3,10 @@ import { Grid, Button } from '@mui/material';
 import { BasicModal } from './btnimagen';
 
 
+
+
+
+
 export const Imagenes = () => {
 
 
@@ -27,20 +31,22 @@ export const Imagenes = () => {
                         maxWidth:'100%',
                         minWidth:'20%',
                         border: '3px solid #66ff76',
+                        overflow: 'hidden',
                 }}>
                     <img onClick={handleClick} src="./Assets/img/Plano1.jpg" className="logo" alt="" width={'100%'} />
                 </Grid>
-                                <Button
+                    <Button
                     style={{
                     position: 'fixed',
                     left: buttonPosition.x,
                     top: buttonPosition.y,
-                    overflowx: 'hidden',    
+                    overflow: 'hidden',    
                     }}
                     
                 >
                     <BasicModal></BasicModal>
                 </Button>
+                
                 
             </Grid>
         </Grid>

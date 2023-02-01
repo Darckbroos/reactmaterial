@@ -3,8 +3,8 @@ import React from "react";
 import {ResponsiveAppBar} from "./components/navbar"
 import {Imagenes, StandardImageList} from "./components/imagen"
 import { IconButton } from "@mui/material";
-import { MuiDrawerLeft } from "./components/btnleft";
-import { MuiDrawer } from "./components/btnder";
+import { MuiDrawerLeftts } from "./components/btns";
+import { MyButton } from "./components/prueba";
 
 
 
@@ -12,11 +12,12 @@ function App() {
   return (
     <div>
          <ResponsiveAppBar></ResponsiveAppBar>
-         <MuiDrawerLeft></MuiDrawerLeft>
-         <MuiDrawer></MuiDrawer>
-         
+         <MuiDrawerLeftts></MuiDrawerLeftts>
          <Imagenes></Imagenes>
          <IconButton> </IconButton>
+         <MyButton></MyButton>
+
+         
     </div>
     
     

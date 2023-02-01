@@ -3,10 +3,11 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { Grid } from '@mui/material';
+import { Grid, TextField} from '@mui/material';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import DoorBackIcon from '@mui/icons-material/DoorBack';
 import FenceIcon from '@mui/icons-material/Fence';
+import { useState } from 'react';
 
 const style = {
   position: 'absolute',
@@ -20,10 +21,17 @@ const style = {
   p: 4,
   maxWidth:'100%',
   minWidth:'20%'
+  
 };
 
+
+
 export function BasicModal() {
-  const [open, setOpen] = React.useState(false);
+  const [icon, setIcon] = useState(null);
+  const [inputValue, setInputValue] = useState('Open');
+
+
+  const [open, setOpen] = useState(false);
   
   const handleOpen = () => {
     setOpen(true);
@@ -32,11 +40,19 @@ export function BasicModal() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
   return (
     <div>
-      <Button variant="contained" onClick={handleOpen}>Open</Button>
+    <div>
+      <Button variant="contained" onClick={handleOpen}>{icon} {inputValue}</Button>
+    </div>
+      
       <Modal
         open={open}
+        onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -48,11 +64,19 @@ export function BasicModal() {
           </Grid>
           <Grid container justifyContent="center">
             <Typography id="modal-modal-description" sx={{ mt: 2}}>
-            <Button sx={{ mr: 1}} variant="contained" startIcon={<DoorBackIcon/>}></Button>
-            <Button sx={{ mr: 1}} variant="contained" startIcon={<FenceIcon  />}></Button>
-            <Button variant="contained" startIcon={<CameraAltIcon  />} ></Button>
+            <Button sx={{ mr: 1}} variant="contained"  onClick={() => setIcon(<DoorBackIcon/>)} startIcon={<DoorBackIcon/>}></Button>
+            <Button sx={{ mr: 1}} variant="contained" onClick={() => setIcon(<FenceIcon  />)} startIcon={<FenceIcon  />}></Button>
+            <Button variant="contained" onClick={() => setIcon(<CameraAltIcon  />)} startIcon={<CameraAltIcon  />} ></Button>
             </Typography>
           </Grid>
+
+          <Grid container justifyContent="center">
+          <Typography id="modal-modal-description" sx={{ mt: 2}}>
+            <TextField label="Ingresa el nombre" value={inputValue} onChange={handleInputChange} color="secondary" focused />
+          </Typography>
+          </Grid>
+
+
           <Grid container justifyContent="center">
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             <Button sx={{ mr: 1}} variant="contained">Puerta</Button>
@@ -69,9 +93,11 @@ export function BasicModal() {
           </Grid>
           
           <Grid container justifyContent="end"  >
-            <Button onClose={handleClose} sx={{ mt: 3}} variant="contained">Close</Button>
+            <Button onClick={handleClose} sx={{ mt: 4}} variant="contained">Close</Button>
           </Grid>
+          
         </Box>  
+        
       </Modal>
     </div>
   );
