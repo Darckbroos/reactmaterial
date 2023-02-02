@@ -5,8 +5,8 @@ import { BasicModal } from './btnimagen';
 
 const initialButtons = [];
 
-export const Imagenes = () => {
 
+export const Imagenes = () => {
 
     const [buttons, setButtons] = useState(initialButtons);
 
@@ -24,8 +24,8 @@ export const Imagenes = () => {
         setButtons([
           ...buttons,
           {
-            left: clientX + -50+'px',
-            top:  clientY + -25 +'px',
+            left: clientX + -50,
+            top:  clientY + -25 ,
             width: 100,
             height: 50,
           },
@@ -38,9 +38,9 @@ export const Imagenes = () => {
             <Grid 
             style={{
                     maxWidth:'70%',
-                     width:'100%',
-                     position: 'static',
-                     marginTop: 70,
+                    width:'100%',
+                    position: 'static',
+                    marginTop: 70,
                      
                 
                 }}>
@@ -55,7 +55,6 @@ export const Imagenes = () => {
                 <Grid>
                 {buttons.map((button, index) => (
                         <Button
-                        onClick={handleClick}
                         key={index}
                         style={{
                           
@@ -67,14 +66,14 @@ export const Imagenes = () => {
                             
                         }}
                         > 
-                        <Grid>
-                            <BasicModal></BasicModal>
-                        </Grid>
+                        <BasicModal></BasicModal>
                        
                     </Button>
                 ))}
                 </Grid>
-                    
+                 <Grid container justifyContent="end">
+                  <Button variant="contained"> Save</Button>
+                 </Grid>   
                 
                 
             </Grid> 
