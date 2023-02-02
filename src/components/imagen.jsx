@@ -8,6 +8,25 @@ const initialButtons = [];
 
 export const Imagenes = () => {
 
+
+  const [data, setData] = useState([]);
+
+
+  const handleClickdata = () => {
+    setData([...data, Date.now()]);
+    const jsonData = JSON.stringify(data);
+    localStorage.setItem('data', jsonData);
+  };
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleClicks = () => {
+    setIsVisible(true);
+  };
+  const handleClickss = () => {
+    setIsVisible(false);
+  };
+
     const [buttons, setButtons] = useState(initialButtons);
 
     const handleClick = (event) => {
@@ -65,14 +84,19 @@ export const Imagenes = () => {
                           height: button.height,
                             
                         }}
+                        onClick={handleClicks}
                         > 
                         <BasicModal></BasicModal>
                        
                     </Button>
                 ))}
                 </Grid>
-                 <Grid container justifyContent="end">
-                  <Button variant="contained"> Save</Button>
+                 <Grid container justifyContent="end" onClick={handleClickdata}>
+                  <Button variant="contained" onClick={handleClickss}
+                  style={{ display: isVisible ? 'block' : 'none' }}
+                  >
+                  Save
+                  </Button>
                  </Grid>   
                 
                 

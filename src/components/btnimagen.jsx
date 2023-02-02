@@ -86,7 +86,7 @@ export function BasicModal() {
           </Grid>
           
           <Grid container justifyContent="end" onClick={() => setIcon(null)}  >
-            <Button  onClick={handleClose} sx={{ mt: 4}} variant="contained" >Close</Button>
+            <Button  onClick={handleClose} sx={{ mt: 4}} variant="contained"  >Close</Button>
           </Grid>
           
         </Box>  
